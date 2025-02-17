@@ -123,6 +123,8 @@ static BOOL _preparedOnce = NO;
   UIView* backdropView = visualEffectView.subviews[_indexOfBackdropView];
   [gaussianBlurFilter setValue:@(_blurRadius) forKey:@"inputRadius"];
   backdropView.layer.filters = @[ gaussianBlurFilter ];
+  backdropView.layer.cornerRadius = 100;
+  backdropView.clipsToBounds = true;
 
   UIView* visualEffectSubview = visualEffectView.subviews[_indexOfVisualEffectSubview];
   visualEffectSubview.layer.backgroundColor = UIColor.clearColor.CGColor;
